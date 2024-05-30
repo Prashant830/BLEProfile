@@ -48,4 +48,29 @@ export const styles = StyleSheet.create({
     width: 34,
     height: 35,
   },
+  containerProfile: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  userImageContainer: {
+    height: '40%', // Adjust as needed
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  userImage: {
+    width: '100%',
+    height: '100%',
+  },
+  descriptionContainer: {
+    flex: 1,
+    justifyContent: 'Top',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    paddingTop: 30
+  },
+  text: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
 });

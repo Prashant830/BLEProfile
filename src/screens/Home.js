@@ -36,12 +36,11 @@ const SmapleData = (navigateToScreen) => {
 const HomeScreen = () => {
 
   const navigation = useNavigation();
-  const { topIcons, bottomIcons, data } = SmapleData(navigateToScreen);
-
   // Function to handle navigation to other screens
   const navigateToScreen = (screenName) => {
     navigation.navigate(screenName);
   };
+  const { topIcons, bottomIcons, data } = SmapleData(navigateToScreen);
 
 
  

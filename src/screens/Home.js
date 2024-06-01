@@ -27,29 +27,55 @@ const SmapleData = (navigateToScreen) => {
         { id: '1-3', initials: 'EF', image: require('../assets/person.jpeg') },
         { id: '1-4', initials: 'GH', image: require('../assets/person.jpeg') },
         { id: '1-5', initials: 'IJ', image: require('../assets/person.jpeg') },
+        { id: '1-6', initials: 'AB', image: require('../assets/person.jpeg') },
+        { id: '1-7', initials: 'CD', image: require('../assets/person.jpeg') },
+        { id: '1-8', initials: 'EF', image: require('../assets/person.jpeg') },
+        { id: '1-9', initials: 'GH', image: require('../assets/person.jpeg') },
+        { id: '1-10', initials: 'IJ', image: require('../assets/person.jpeg') },
+        { id: '1-11', initials: 'CD', image: require('../assets/person.jpeg') },
+        { id: '1-12', initials: 'EF', image: require('../assets/person.jpeg') },
+        { id: '1-13', initials: 'GH', image: require('../assets/person.jpeg') },
+        
       ]
     },
     { 
       id: '2', 
       name: 'Item 2', 
       profileViews: [
-        { id: '2-1', initials: 'KL', image: require('../assets/person.jpeg') },
-        { id: '2-2', initials: 'MN', image: require('../assets/person.jpeg') },
-        { id: '2-3', initials: 'OP', image: require('../assets/person.jpeg') },
-        { id: '2-4', initials: 'QR', image: require('../assets/person.jpeg') },
-        { id: '2-5', initials: 'ST', image: require('../assets/person.jpeg') },
+        { id: '2-1', initials: 'AB', image: require('../assets/person.jpeg') },
+        { id: '2-2', initials: 'CD', image: require('../assets/person.jpeg') },
+        { id: '2-3', initials: 'EF', image: require('../assets/person.jpeg') },
+        { id: '2-4', initials: 'GH', image: require('../assets/person.jpeg') },
+        { id: '2-5', initials: 'IJ', image: require('../assets/person.jpeg') },
+        { id: '2-6', initials: 'AB', image: require('../assets/person.jpeg') },
+        { id: '2-7', initials: 'CD', image: require('../assets/person.jpeg') },
+        { id: '2-8', initials: 'EF', image: require('../assets/person.jpeg') },
+        { id: '2-9', initials: 'GH', image: require('../assets/person.jpeg') },
+        { id: '2-10', initials: 'IJ', image: require('../assets/person.jpeg') },
+        { id: '2-11', initials: 'CD', image: require('../assets/person.jpeg') },
+        { id: '2-12', initials: 'EF', image: require('../assets/person.jpeg') },
+        { id: '2-13', initials: 'GH', image: require('../assets/person.jpeg') },
+        
       ]
     },
     { 
       id: '3', 
       name: 'Item 3', 
       profileViews: [
-        { id: '3-1', initials: 'UV', image: require('../assets/person.jpeg') },
-        { id: '3-2', initials: 'WX', image: require('../assets/person.jpeg') },
-        { id: '3-3', initials: 'YZ', image: require('../assets/person.jpeg') },
-        { id: '3-4', initials: 'AB', image: require('../assets/person.jpeg') },
-        { id: '3-5', initials: 'CD', image: require('../assets/person.jpeg') },
-      ]
+        { id: '3-1', initials: 'AB', image: require('../assets/person.jpeg') },
+        { id: '3-2', initials: 'CD', image: require('../assets/person.jpeg') },
+        { id: '3-3', initials: 'EF', image: require('../assets/person.jpeg') },
+        { id: '3-4', initials: 'GH', image: require('../assets/person.jpeg') },
+        { id: '3-5', initials: 'IJ', image: require('../assets/person.jpeg') },
+        { id: '3-6', initials: 'AB', image: require('../assets/person.jpeg') },
+        { id: '3-7', initials: 'CD', image: require('../assets/person.jpeg') },
+        { id: '3-8', initials: 'EF', image: require('../assets/person.jpeg') },
+        { id: '3-9', initials: 'GH', image: require('../assets/person.jpeg') },
+        { id: '3-10', initials: 'IJ', image: require('../assets/person.jpeg') },
+        { id: '3-11', initials: 'CD', image: require('../assets/person.jpeg') },
+        { id: '3-12', initials: 'EF', image: require('../assets/person.jpeg') },
+        { id: '3-13', initials: 'GH', image: require('../assets/person.jpeg') },
+        ]
     },
   ];
 
@@ -59,11 +85,20 @@ const SmapleData = (navigateToScreen) => {
 // Function to calculate the position of the bubbles based on index
 const getBubblePosition = (index) => {
   const positions = [
-    { top: "-10%", left: '25%' },
-    { top: '15%', right: '-15%' },
+    { top: "10%", left: '25%' },
+    { top: '15%', right: '-20%' },
     { top: '60%', left: '3%' },
-    { top: '15%', left: '-20%' },
+    { top: '15%', left: '-30%' },
     { top: '60%', right: '3%' },
+    { top: "-45%", left: '-15%' },
+    { top: '-45%', right: '-10%' },
+    { top: '-80%', right: '30%' },
+    { top: '110%', left: '35%' },
+    { top: '110%', left: '90%' },
+    { top: '110%', left: '-20%' },
+    { top: '110%', left: '90%' },
+    { top: '160%', right: '0%' },
+
   ];
   return {
     position: 'absolute',

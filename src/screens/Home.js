@@ -1,49 +1,84 @@
 import React from 'react';
-import { View, Text, FlatList, Image } from 'react-native';
+import { View, Text, FlatList, Image, StyleSheet, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import CustomBar from '../components/TopBottumBar';
-import { styles } from '../style/style'; // Import styles from styles.js
-
-
+import { styles } from '../style/homeStyle';
 
 const SmapleData = (navigateToScreen) => {
-    const topIcons = [
-      { icon: require('../assets/profile.png'), onPress: () => navigateToScreen('ProfileDetail') },
-      { icon: require('../assets/noti.png'), onPress: () => navigateToScreen('Notification') },
-      { icon: require('../assets/chat.png'), onPress: () => navigateToScreen('Chat') },
-    ];
-  
-    const bottomIcons = [
-      { icon: require('../assets/settings.png'), onPress: () => navigateToScreen('Setting') },
-      { icon: require('../assets/refress.png'), onPress: () => navigateToScreen('Home') },
-      { icon: require('../assets/profile.png'), onPress: () => navigateToScreen('ProfileDetail') },
-    ];
-  
-    const data = [
-      { id: '1', name: 'Item 1', image: require('../assets/person.jpeg') },
-      { id: '2', name: 'Item 2', image: require('../assets/person.jpeg') },
-      { id: '3', name: 'Item 3', image: require('../assets/person.jpeg') },
-      { id: '4', name: 'Item 4', image: require('../assets/person.jpeg') },
-      { id: '5', name: 'Item 5', image: require('../assets/person.jpeg') },
-      { id: '6', name: 'Item 4', image: require('../assets/person.jpeg') },
-      { id: '7 ', name: 'Item 5', image: require('../assets/person.jpeg') },
-    ];
-  
-    return { topIcons, bottomIcons, data };
-  };
-  
-  
-const HomeScreen = () => {
+  const topIcons = [
+    { icon: require('../assets/profile.png'), onPress: () => navigateToScreen('ProfileDetail') },
+    { icon: require('../assets/noti.png'), onPress: () => navigateToScreen('Notification') },
+    { icon: require('../assets/chat.png'), onPress: () => navigateToScreen('Chat') },
+  ];
 
+  const bottomIcons = [
+    { icon: require('../assets/settings.png'), onPress: () => navigateToScreen('Setting') },
+    { icon: require('../assets/refress.png'), onPress: () => navigateToScreen('Home') },
+    { icon: require('../assets/profile.png'), onPress: () => navigateToScreen('ProfileDetail') },
+  ];
+
+  const data = [
+    { 
+      id: '1', 
+      name: 'Item 1', 
+      profileViews: [
+        { id: '1-1', initials: 'AB', image: require('../assets/person.jpeg') },
+        { id: '1-2', initials: 'CD', image: require('../assets/person.jpeg') },
+        { id: '1-3', initials: 'EF', image: require('../assets/person.jpeg') },
+        { id: '1-4', initials: 'GH', image: require('../assets/person.jpeg') },
+        { id: '1-5', initials: 'IJ', image: require('../assets/person.jpeg') },
+      ]
+    },
+    { 
+      id: '2', 
+      name: 'Item 2', 
+      profileViews: [
+        { id: '2-1', initials: 'KL', image: require('../assets/person.jpeg') },
+        { id: '2-2', initials: 'MN', image: require('../assets/person.jpeg') },
+        { id: '2-3', initials: 'OP', image: require('../assets/person.jpeg') },
+        { id: '2-4', initials: 'QR', image: require('../assets/person.jpeg') },
+        { id: '2-5', initials: 'ST', image: require('../assets/person.jpeg') },
+      ]
+    },
+    { 
+      id: '3', 
+      name: 'Item 3', 
+      profileViews: [
+        { id: '3-1', initials: 'UV', image: require('../assets/person.jpeg') },
+        { id: '3-2', initials: 'WX', image: require('../assets/person.jpeg') },
+        { id: '3-3', initials: 'YZ', image: require('../assets/person.jpeg') },
+        { id: '3-4', initials: 'AB', image: require('../assets/person.jpeg') },
+        { id: '3-5', initials: 'CD', image: require('../assets/person.jpeg') },
+      ]
+    },
+  ];
+
+  return { topIcons, bottomIcons, data };
+};
+
+// Function to calculate the position of the bubbles based on index
+const getBubblePosition = (index) => {
+  const positions = [
+    { top: "-10%", left: '25%' },
+    { top: '15%', right: '-15%' },
+    { top: '60%', left: '3%' },
+    { top: '15%', left: '-20%' },
+    { top: '60%', right: '3%' },
+  ];
+  return {
+    position: 'absolute',
+    ...positions[index],
+  };
+};
+
+
+
+const HomeScreen = () => {
   const navigation = useNavigation();
-  // Function to handle navigation to other screens
   const navigateToScreen = (screenName) => {
     navigation.navigate(screenName);
   };
   const { topIcons, bottomIcons, data } = SmapleData(navigateToScreen);
-
-
- 
 
   return (
     <View style={styles.container}>
@@ -51,14 +86,21 @@ const HomeScreen = () => {
       <CustomBar Icons={topIcons} />
 
       {/* Main content */}
-      {/* List of items */}
+      {/* Horizontal FlatList of items */}
       <FlatList
         data={data}
-        showsVerticalScrollIndicator={false}
+        horizontal
+        showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => (
           <View style={styles.itemContainer}>
-            <Image source={item.image} style={styles.itemImage} />
-            <Text style={styles.itemName}>{item.name}</Text>
+            <View style={styles.profileViewContainer}>
+              {item.profileViews.map((profile, index) => (
+                <View key={profile.id} style={[styles.profileContainer, getBubblePosition(index)]}>
+                  <Image source={profile.image} style={styles.profileImage} />
+                  <Text style={styles.profileInitials}>{profile.initials}</Text>
+                </View>
+              ))}
+            </View>
           </View>
         )}
         keyExtractor={(item) => item.id}
@@ -69,5 +111,6 @@ const HomeScreen = () => {
     </View>
   );
 };
+
 
 export default HomeScreen;

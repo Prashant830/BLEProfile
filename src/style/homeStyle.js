@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
   },
   itemContainer: {
     width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height - 185, // Adjusted height to account for top and bottom bars
+    height: Dimensions.get('window').height - 170, // Adjusted height to account for top and bottom bars
     alignItems: 'center',
     justifyContent: 'center',
     marginHorizontal: 10,
